@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipealo</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="../IconLogo.png" type="image/png">
+</head>
+<body class="crearcuenta">
+    <!-- header -->
+    <header>
+        <a href="../index.html">
+            <img src="../IconLogo.png" alt="logo">
+        </a>
+        <ul>
+            <li><a href="../wiframes/inicioSesion.html">Iniciar sesión</a></li>
+            <li><a href="./creaCuenta.html">Crear cuenta</a></li>
+        </ul>
+    </header>
+    <!-- body -->
+    <div>
+        <div class="crearcuenta-body">
+            <h1>Crear Cuenta</h1>
+            <form id="formulario-crearcuenta">
+                <label for="nombreUsuario">Nombre</label>
+                <input type="text" id="nombreUsuario" name="nombreUsuario" required>
+            
+                <label for="apellidoUsuario">Apellido</label>
+                <input type="text" id="apellidoUsuario" name="apellidoUsuario" required>
+                
+                <label for="email">Correo Electrónico</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Crear Cuenta</button>
+            </form>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer>
+        <h3>Redes sociales</h3>
+        <a href="#">Instagram</a>
+        <a href="#">Correo electrónico</a>
+    </footer>
+    <script src="../JS/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interexpress</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="icon" href="../IconLogo.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- biblioteca para manipular datos en json -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script> <!-- biblioteca iconos de validacion -->
+    <script src="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.js"></script> <!--api para sugerencias de lugares(ubicaciones)-->
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/place-search-js/v1.0.0/place-search.css"/> <!--api para sugerencias de lugares(ubicaciones)-->
+</head>
+<body class="index">
+    <!-- header -->
+    <header>
+        <a href="../index.html">
+            <img src="../IconLogo.png" alt="logo">
+        </a>
+        <ul>
+            <li id="mostrarNombreCompleto">@usuario</li>
+        </ul>
+    </header>
+    <!-- body -->
+    <div class="cargaenvio-body">
+        <h1>Carga de datos</h1>
+        <div class="cargaenvios-body-datos">
+            <!-- carga de formulario -->
+            <div class="datos-desde">
+                <form id="formularioDesde">
+                    <p>DATOS DESDE...</p>
+
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" id="validacionNombre1" class="CajaInput-input" required autocomplete="off">
+                        <span id="validacionNombre1span"></span>
+                    </div>
+
+                    <div>
+                        <label for="apellido">Apellido</label>
+                        <input type="text" name="apellido" required id="validacionApellido1" class="CajaInput-input" autocomplete="off">
+                        <span id="validacionApellido1span"></span>
+                    </div>
+
+                    <div>
+                        <label for="email">Correo electronico</label>
+                        <input type="text" name="email" required id="validacionCorreo1" class="CajaInput-input" autocomplete="off">
+                        <span id="validacionCorreo1span"></span>
+                    </div>
+
+                    <div>
+                        <label for="celular">Celular</label>
+                        <input type="text" name="celular" required id="validacionCelular1" class="CajaInput-input" maxlength="13" autocomplete="off">
+                        <span id="validacionCelular1span"></span>
+                    </div>
+
+                    <div>
+                        <label for="direccion1">Direccion</label>
+                        <input type="text" name="direccion1" id="direccion1" class="CajaInput-input" required autocomplete="off">
+                    </div>
+
+                    <div>
+                        <label for="entrecalles">Entre calles</label>
+                        <input type="text" name="entrecalles" required id="validacionEntreCalles1" class="CajaInput-input" autocomplete="off">
+                        <span id="validacionEntreCalles1span"></span>
+                    </div>
+
+                    <div>
+                        <label for="cp">Codigo postal</label>
+                        <input type="text" name="cp" required id="validacionCP1" maxlength="7" class="CajaInput-input" autocomplete="off">
+                        <span id="validacionCP1span"></span>
+                    </div>
+
+                    <div>
+                        <label for="localidad1">Localidad</label>
+                        <input type="text" name="localidad1" id="localidad1" class="CajaInput-input" required autocomplete="off">
+                    </div>
+
+                    <div>
+                        <label for="referencias">Referencias</label>
+                        <textarea name="referencias" cols="2" rows="2" placeholder="Describa datos extra que ayude a identificar el domicilio..." class="CajaInput-input" required></textarea>
+                    </div>
+
+                </form>
+            </div>
+            <div class="datos-hasta">
+                <form id="formularioHasta">
+                    <p>DATOS HASTA...</p>
+
+                    <div>
+                        <label for="nombre">Nombre</label>
+                        <input type="text" name="nombre" class="CajaInput-input" id="validacionNombre2" required autocomplete="off">
+                        <span id="validacionNombre2span"></span>
+                    </div>
+
+                    <div>
+                        <label for="apellido">Apellido</label>
+                        <input type="text" name="apellido" class="CajaInput-input"required id="validacionApellido2" autocomplete="off">
+                        <span id="validacionApellido2span"></span>                        
+                    </div>
+
+                    <div>
+                        <label for="email">Correo electronico</label>
+                        <input type="text" id="emailHasta" name="email" class="CajaInput-input" required autocomplete="off">
+                    </div>
+
+                    <div>
+                        <label for="celular">Celular</label>
+                        <input type="text" name="celular" required id="validacionCelular2" class="CajaInput-input" maxlength="13" autocomplete="off">
+                        <span id="validacionCelular2span"></span>
+                    </div>
+
+                    <div>
+                        <label for="direccion2">Direccion</label>
+                        <input type="text" name="direccion2" id="direccion2" class="CajaInput-input">
+                    </div>
+
+                    <div>
+                        <label for="entrecalles">Entre calles</label>
+                        <input type="text" name="entrecalles" required id="validacionEntreCalles2" class="CajaInput-input" autocomplete="off">
+                        <span id="validacionEntreCalles2span"></span>
+                    </div>
+
+                    <div>
+                        <label for="cp">Codigo postal</label>
+                        <input type="text" name="cp" required class="CajaInput-input" id="validacionCP2" maxlength="7" autocomplete="off">
+                        <span id="validacionCP2span"></span>
+                    </div>
+
+                    <div>
+                        <label for="localidad2">Localidad</label>
+                        <input type="text" name="localidad2" id="localidad2" class="CajaInput-input">
+                    </div>
+
+                    <div>
+                        <label for="referencias">Referencias</label>
+                        <textarea name="referencias" cols="2" rows="2" placeholder="Describa datos extra que ayude a identificar el domicilio..." class="CajaInput-input" required></textarea>
+                    </div>
+
+                </form>
+            </div>
+            <!-- tamaño paquete -->
+            <div class="cargaenvios-body-tamanio">
+                <form>
+                    <p>TAMAÑO PAQUETE</p>
+
+                    <label for="alto">Alto</label>
+                    <input type="text" name="alto" required id="validacionAlto" maxlength="2" autocomplete="off">
+                    <span id="validacionAltospan"></span>
+                    
+                    <label for="ancho">Ancho</label>
+                    <input type="text" name="ancho" required id="validacionAncho" maxlength="2" autocomplete="off">
+                    <span id="validacionAnchospan"></span>
+                    
+                    <label for="profundo">Profundo</label>
+                    <input type="text" name="profundo" required id="validacionProfundo" maxlength="2" autocomplete="off">
+                    <span id="validacionProfundospan"></span>
+    
+                    <label for="distacia">Distacia (km)</label>
+                    <p id="mostrarKilometros">...</p>
+
+                </form>
+                <img src="../Cajamedidas3.png" alt="cajamedidas">
+                <!-- boton calcular envio y confirmar envio -->
+                <div>
+                    <button type="button" id="botonCalcular">Calcular</button>
+                    <p id="mostrarPrecio">$ ---</p>
+                </div>
+                <button type="button" id="confirmarEnvio">Confirmar envio</button>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer>
+        <h3>Redes sociales</h3>
+        <a href="#">Instagram</a>
+        <a href="#">Correo electrónico</a>
+    </footer>
+    <script src="../JS/main.js"></script>
+</body>
+</html>
